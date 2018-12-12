@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="7" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="69216" started-at="2018-12-12T18:02:46Z" finished-at="2018-12-12T18:03:55Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="69216" started-at="2018-12-12T18:02:46Z" finished-at="2018-12-12T18:03:55Z">
+      <class name="com.qa.testcases.LandingPageTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="setup" is-config="true" duration-ms="11243" started-at="2018-12-12T13:02:46Z" finished-at="2018-12-12T13:02:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="validateTitle()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="validateTitle" duration-ms="83" started-at="2018-12-12T13:02:57Z" finished-at="2018-12-12T13:02:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateTitle -->
+        <test-method status="PASS" signature="hoverOverRecentProducts()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="hoverOverRecentProducts" duration-ms="4607" started-at="2018-12-12T13:02:57Z" finished-at="2018-12-12T13:03:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hoverOverRecentProducts -->
+        <test-method status="FAIL" signature="addRecentProductToCart()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="addRecentProductToCart" duration-ms="29275" started-at="2018-12-12T13:03:02Z" finished-at="2018-12-12T13:03:31Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.qa.testcases.LandingPageTest.addRecentProductToCart(LandingPageTest.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRecentProductToCart -->
+        <test-method status="PASS" signature="navigateSlidesWithButtons()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="navigateSlidesWithButtons" duration-ms="2701" started-at="2018-12-12T13:03:31Z" finished-at="2018-12-12T13:03:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateSlidesWithButtons -->
+        <test-method status="PASS" signature="navigateSlidesWithRightArrow()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="navigateSlidesWithRightArrow" duration-ms="3064" started-at="2018-12-12T13:03:34Z" finished-at="2018-12-12T13:03:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateSlidesWithRightArrow -->
+        <test-method status="PASS" signature="navigateSlidesWithLeftArrow()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="navigateSlidesWithLeftArrow" duration-ms="3227" started-at="2018-12-12T13:03:37Z" finished-at="2018-12-12T13:03:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateSlidesWithLeftArrow -->
+        <test-method status="PASS" signature="clickMoreInfoOnSlides()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="clickMoreInfoOnSlides" duration-ms="14045" started-at="2018-12-12T13:03:40Z" finished-at="2018-12-12T13:03:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickMoreInfoOnSlides -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="tearDown" is-config="true" duration-ms="902" started-at="2018-12-12T13:03:54Z" finished-at="2018-12-12T13:03:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.testcases.LandingPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
