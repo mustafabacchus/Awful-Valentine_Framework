@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="7" passed="6">
+<testng-results skipped="0" failed="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="69216" started-at="2018-12-12T18:02:46Z" finished-at="2018-12-12T18:03:55Z">
+  <suite name="Default suite" duration-ms="59662" started-at="2018-12-17T21:26:40Z" finished-at="2018-12-17T21:27:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="69216" started-at="2018-12-12T18:02:46Z" finished-at="2018-12-12T18:03:55Z">
-      <class name="com.qa.testcases.LandingPageTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="setup" is-config="true" duration-ms="11243" started-at="2018-12-12T13:02:46Z" finished-at="2018-12-12T13:02:57Z">
+    <test name="Default test" duration-ms="59662" started-at="2018-12-17T21:26:40Z" finished-at="2018-12-17T21:27:40Z">
+      <class name="com.qa.testcases.ShoppingCartPageTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.testcases.ShoppingCartPageTest@29774679]" name="setup" is-config="true" duration-ms="9347" started-at="2018-12-17T16:26:40Z" finished-at="2018-12-17T16:26:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="validateTitle()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="validateTitle" duration-ms="83" started-at="2018-12-12T13:02:57Z" finished-at="2018-12-12T13:02:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateTitle -->
-        <test-method status="PASS" signature="hoverOverRecentProducts()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="hoverOverRecentProducts" duration-ms="4607" started-at="2018-12-12T13:02:57Z" finished-at="2018-12-12T13:03:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- hoverOverRecentProducts -->
-        <test-method status="FAIL" signature="addRecentProductToCart()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="addRecentProductToCart" duration-ms="29275" started-at="2018-12-12T13:03:02Z" finished-at="2018-12-12T13:03:31Z">
+        <test-method status="FAIL" signature="updateCart()[pri:0, instance:com.qa.testcases.ShoppingCartPageTest@29774679]" name="updateCart" duration-ms="16573" started-at="2018-12-17T16:26:49Z" finished-at="2018-12-17T16:27:06Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -30,7 +22,7 @@
 	at org.testng.Assert.failNotEquals(Assert.java:494)
 	at org.testng.Assert.assertTrue(Assert.java:42)
 	at org.testng.Assert.assertTrue(Assert.java:52)
-	at com.qa.testcases.LandingPageTest.addRecentProductToCart(LandingPageTest.java:114)
+	at com.qa.testcases.ShoppingCartPageTest.updateCart(ShoppingCartPageTest.java:90)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -60,28 +52,24 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addRecentProductToCart -->
-        <test-method status="PASS" signature="navigateSlidesWithButtons()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="navigateSlidesWithButtons" duration-ms="2701" started-at="2018-12-12T13:03:31Z" finished-at="2018-12-12T13:03:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateSlidesWithButtons -->
-        <test-method status="PASS" signature="navigateSlidesWithRightArrow()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="navigateSlidesWithRightArrow" duration-ms="3064" started-at="2018-12-12T13:03:34Z" finished-at="2018-12-12T13:03:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateSlidesWithRightArrow -->
-        <test-method status="PASS" signature="navigateSlidesWithLeftArrow()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="navigateSlidesWithLeftArrow" duration-ms="3227" started-at="2018-12-12T13:03:37Z" finished-at="2018-12-12T13:03:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateSlidesWithLeftArrow -->
-        <test-method status="PASS" signature="clickMoreInfoOnSlides()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="clickMoreInfoOnSlides" duration-ms="14045" started-at="2018-12-12T13:03:40Z" finished-at="2018-12-12T13:03:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clickMoreInfoOnSlides -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.testcases.LandingPageTest@59fa1d9b]" name="tearDown" is-config="true" duration-ms="902" started-at="2018-12-12T13:03:54Z" finished-at="2018-12-12T13:03:55Z">
+        </test-method> <!-- updateCart -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.testcases.ShoppingCartPageTest@29774679]" name="tearDown" is-config="true" duration-ms="774" started-at="2018-12-17T16:27:06Z" finished-at="2018-12-17T16:27:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.qa.testcases.LandingPageTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.testcases.ShoppingCartPageTest@29774679]" name="setup" is-config="true" duration-ms="9620" started-at="2018-12-17T16:27:07Z" finished-at="2018-12-17T16:27:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="deleteItem()[pri:0, instance:com.qa.testcases.ShoppingCartPageTest@29774679]" name="deleteItem" duration-ms="22454" started-at="2018-12-17T16:27:16Z" finished-at="2018-12-17T16:27:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteItem -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.testcases.ShoppingCartPageTest@29774679]" name="tearDown" is-config="true" duration-ms="882" started-at="2018-12-17T16:27:39Z" finished-at="2018-12-17T16:27:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.testcases.ShoppingCartPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

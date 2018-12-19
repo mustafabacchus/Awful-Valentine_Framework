@@ -1,0 +1,150 @@
+package com.qa.testcases;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.qa.was.base.Base;
+import com.qa.was.pages.CartPage;
+import com.qa.was.pages.CartSidebar;
+import com.qa.was.pages.LandingPage;
+import com.qa.was.util.Util;
+
+public class CartPageTest extends Base {
+	
+	CartPage cartPage;
+	LandingPage landingPage;
+	CartSidebar cartSidebar;
+	Util util;
+	
+	public CartPageTest() {
+		super();
+	}
+	
+	
+	@BeforeMethod
+	public void setup() throws Exception {
+		initialize();
+		cartPage = new CartPage();
+		landingPage = new LandingPage();
+		cartSidebar = new CartSidebar();
+		util = new Util();
+	}
+	/*
+	@Test
+	public void test() {
+		System.out.println(cartSidebar.getItemInCart());
+	}
+	*/
+	
+	@Test(priority=0)
+	public void updateCart() {
+		util.displayTestCaseTitle("Update Item Quantity In Cart");
+		int totalOffers = landingPage.getSpecialOffers().size();
+		
+		//Populate cart
+		cartPage.populateCartWithSpecialOffers();
+		cartSidebar.clickViewCart();
+		
+		//Proceed if there are items in the cart
+		if (cartSidebar.getItemInCart() != 0) {
+			
+			//Report items populated
+			List<WebElement> items = cartPage.getItemsInCart();
+			System.out.println(Integer.toString(items.size()) + "/" + Integer.toString(totalOffers) 
+				+ " products populated." );
+			
+			int qty = 493;
+			//Change the quantity of items
+			for(WebElement item: items) {
+				cartPage.inputQuantity(item, qty);
+			}
+			cartPage.clickUpdateTotal();
+			
+			//Check if quantity has been updated
+			items = cartPage.getItemsInCart();
+			boolean working = true;
+			for (WebElement item: items) {
+				try {
+					assertEquals(cartPage.getQuantity(item), qty);
+					System.out.println(cartPage.getItemName(item) + ": Pass");
+				} catch (java.lang.AssertionError e) {
+					System.out.println(cartPage.getItemName(item) + ": Fail");
+					working = false;
+				}
+			}
+			assertTrue(working);
+			
+		} else {
+			System.out.println("No products populated.");
+			assertTrue(false);
+		}
+	}
+	
+	
+	@Test(priority=1)
+	public void deleteItem()  {
+		util.displayTestCaseTitle("Delete Items From Cart");
+		int totalOffers = landingPage.getSpecialOffers().size();
+		
+		//Populate cart
+		cartPage.populateCartWithSpecialOffers();
+		cartSidebar.clickViewCart();
+		
+		if (cartSidebar.getItemInCart() != 0) {
+			
+			//Report items populated
+			List<WebElement> items = cartPage.getItemsInCart();
+			System.out.println(Integer.toString(items.size()) + "/" + Integer.toString(totalOffers) 
+				+ " products populated." );
+			
+			//Delete each item
+			int total = items.size();
+			for (int i = 0; i < total; i++) {
+				items = cartPage.getItemsInCart();
+				cartPage.clickTrashIcon(items.get(0));
+			}
+			
+			boolean working = true;
+			//Validate empty cart
+			try {
+				assertEquals(cartSidebar.getItemInCart(), 0);
+				System.out.println("Items Deleted: Pass");
+			} catch (java.lang.AssertionError e) {
+				System.out.println("Items Deleted: Fail");
+				working = false;
+			}
+			//Validate empty cart message
+			try {
+				cartPage.validateEmptyCartMessage();
+				System.out.println("Message Validation: Pass");
+			} catch (java.lang.AssertionError e) {
+				System.out.println("Message Validation: Fail");
+				working = false;
+			}
+			assertTrue(working);
+			
+		} else {
+			System.out.println("No products populated.");
+			assertTrue(false);
+		}
+	}
+	
+	
+	@AfterMethod
+	public void tearDown() {
+		System.out.println();
+		driver.quit();
+	}
+	
+	
+}

@@ -11,7 +11,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -37,7 +39,7 @@ public class LandingPageTest extends Base {
 		super();
 	}
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() throws Exception {
 		initialize();
 		landingPage = new LandingPage();
@@ -57,7 +59,6 @@ public class LandingPageTest extends Base {
 	
 	@Test(priority=1)
 	public void hoverOverRecentProducts() {
-		driver.navigate().refresh();
 		List<WebElement>recentProducts = landingPage.getRecentProducts();
 		util.displayTestCaseTitle("Hover Over Recent Products");
 		
@@ -85,7 +86,6 @@ public class LandingPageTest extends Base {
 	
 	@Test(priority=2)
 	public void addRecentProductToCart() {
-		driver.navigate().refresh();
 		util.displayTestCaseTitle("Add Recent Products To Cart");
 		
 		boolean working = true;
@@ -97,11 +97,8 @@ public class LandingPageTest extends Base {
 			
 			landingPage.addItemToCart(product);
 			try {	
-				//Confirm redirect to cart
 				cartPage.validateTitle();
-				//Employ the continue shopping option from cart
 				cartPage.clickContinueShopping();
-				//Confirm redirect to landing page
 				landingPage.validateTitle();
 				
 				System.out.println(item + ": Pass");
@@ -117,7 +114,6 @@ public class LandingPageTest extends Base {
 	
 	@Test(priority=3)
 	public void navigateSlidesWithButtons() {
-		driver.navigate().refresh();
 		List<WebElement> controlButtons = landingPage.getControlButtons();
 		util.displayTestCaseTitle("Slide Navigation: Control Buttons");
 				
@@ -143,7 +139,6 @@ public class LandingPageTest extends Base {
 
 	@Test(priority=4)
 	public void navigateSlidesWithRightArrow() {
-		driver.navigate().refresh();
 		List<WebElement> controlButtons = landingPage.getControlButtons();
 		util.displayTestCaseTitle("Slide Navigation: Right Arrow");
 		//Start with first slide active
@@ -182,7 +177,6 @@ public class LandingPageTest extends Base {
 	
 	@Test(priority=5)
 	public void navigateSlidesWithLeftArrow() {
-		driver.navigate().refresh();
 		List<WebElement> controlButtons = landingPage.getControlButtons();
 		util.displayTestCaseTitle("Slide Navigation: Left Arrow");
 		//Start with last slide active
@@ -221,7 +215,6 @@ public class LandingPageTest extends Base {
 	
 	@Test(priority = 6)
 	public void clickMoreInfoOnSlides() {
-		driver.navigate().refresh();
 		util.displayTestCaseTitle("Click More Info on Slides");
 		
 		boolean working = true;
@@ -252,7 +245,7 @@ public class LandingPageTest extends Base {
 	}
 	
 
-	@AfterTest
+	@AfterMethod
 	public void tearDown() {
 		System.out.println();
 		driver.quit();

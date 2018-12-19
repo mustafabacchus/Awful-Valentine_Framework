@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -73,10 +74,14 @@ public class LandingPage extends Base {
 	
 	//Add to cart from pop up
 	public void addProductToCartFromPopup(WebElement product, String id) {
-		String buttonFormXpath = "//*[@id=\'cartButtonForm" + id + "\']";
-		String addToCartBtnXpath = "//*[@id=\'addToCart" + id + "\']";
-		product.findElement(By.xpath("//*[@id=\"fancybox-overlay\"]")).
-			findElement(By.xpath(buttonFormXpath)).findElement(By.xpath(addToCartBtnXpath)).click();
+		while (true) {
+			try {
+				driver.findElement(By.id("cartButtonForm" + id)).findElement(By.id("addToCart" + id)).click();
+				break;
+			} catch (WebDriverException e) {
+				continue;
+			}
+		}
 	}
 	
 	//Add item to cart
