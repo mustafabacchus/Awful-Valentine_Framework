@@ -39,12 +39,7 @@ public class CartPageTest extends Base {
 		cartSidebar = new CartSidebar();
 		util = new Util();
 	}
-	/*
-	@Test
-	public void test() {
-		System.out.println(cartSidebar.getItemInCart());
-	}
-	*/
+	
 	
 	@Test(priority=0)
 	public void updateCart() {
