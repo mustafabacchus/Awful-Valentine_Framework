@@ -35,6 +35,7 @@ public class CartPage extends Base {
 	}
 	
 	
+	//POPULATE CART WITH ITEMS
 	public void populateCartWithSpecialOffers() {
 		for (int i = 0; i < landingPage.getSpecialOffers().size(); i++) {
 			List<WebElement> products = landingPage.getSpecialOffers();
@@ -49,6 +50,7 @@ public class CartPage extends Base {
 		}
 	}
 	
+	//GET ALL ITEMS IN CART
 	public List<WebElement> getItemsInCart() {
 		List<WebElement> items = null;
 		while (true) {
@@ -63,7 +65,7 @@ public class CartPage extends Base {
 		return items.subList(0, items.size()-4);
 	}
 	
-	
+	//Validate cart message when empty
 	public void validateEmptyCartMessage() {
 		WebElement msg = driver.findElement(By.id("emptyCartMsg")).findElement(By.tagName("h3"));
 		assertTrue(msg.isDisplayed());

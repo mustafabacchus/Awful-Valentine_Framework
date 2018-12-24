@@ -5,9 +5,10 @@
     <classes>
       <class name="com.qa.testcases.CartPageTest">
         <methods>
+          <include name="updateCart"/>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="test"/>
+          <include name="checkCartQTY"/>
         </methods>
       </class> <!-- com.qa.testcases.CartPageTest -->
     </classes>

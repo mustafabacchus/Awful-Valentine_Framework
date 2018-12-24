@@ -3,6 +3,7 @@ package com.qa.testcases;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -42,8 +43,8 @@ public class CartPageTest extends Base {
 	
 	
 	@Test(priority=0)
-	public void updateCart() {
-		util.displayTestCaseTitle("Update Item Quantity In Cart");
+	public void checkCartQTY() {
+		util.displayTestCaseTitle("Item Populates In Cart With Quantity Of 1");
 		int totalOffers = landingPage.getSpecialOffers().size();
 		
 		//Populate cart
@@ -58,19 +59,11 @@ public class CartPageTest extends Base {
 			System.out.println(Integer.toString(items.size()) + "/" + Integer.toString(totalOffers) 
 				+ " products populated." );
 			
-			int qty = 493;
-			//Change the quantity of items
-			for(WebElement item: items) {
-				cartPage.inputQuantity(item, qty);
-			}
-			cartPage.clickUpdateTotal();
-			
-			//Check if quantity has been updated
-			items = cartPage.getItemsInCart();
+			//Check the quantity of each item
 			boolean working = true;
 			for (WebElement item: items) {
 				try {
-					assertEquals(cartPage.getQuantity(item), qty);
+					assertEquals(cartPage.getQuantity(item), 1);
 					System.out.println(cartPage.getItemName(item) + ": Pass");
 				} catch (java.lang.AssertionError e) {
 					System.out.println(cartPage.getItemName(item) + ": Fail");
@@ -87,6 +80,56 @@ public class CartPageTest extends Base {
 	
 	
 	@Test(priority=1)
+	public void updateCart() {
+		util.displayTestCaseTitle("Update Item Quantity In Cart");
+		int totalOffers = landingPage.getSpecialOffers().size();
+		
+		//Populate cart
+		cartPage.populateCartWithSpecialOffers();
+		cartSidebar.clickViewCart();
+		
+		if (cartSidebar.getItemInCart() != 0) {
+			
+			//Report items populated
+			List<WebElement> items = cartPage.getItemsInCart();
+			System.out.println(Integer.toString(items.size()) + "/" + Integer.toString(totalOffers) 
+				+ " products populated." );
+			
+			int qty = 5;
+			List<Integer> qtys = new ArrayList<Integer>();
+			//Change the quantity of items
+			for(WebElement item: items) {
+				cartPage.inputQuantity(item, qty);
+				qtys.add(qty);
+				qty++;
+			}
+			cartPage.clickUpdateTotal();
+			
+			//Check if quantity has been updated
+			items = cartPage.getItemsInCart();
+			int count = 0;
+			boolean working = true;
+			for (WebElement item: items) {
+				try {
+					int q = qtys.get(count);
+					assertEquals(cartPage.getQuantity(item), q);
+					System.out.println(cartPage.getItemName(item) + ": Pass");
+				} catch (java.lang.AssertionError e) {
+					System.out.println(cartPage.getItemName(item) + ": Fail");
+					working = false;
+				}
+				count++;
+			}
+			assertTrue(working);
+			
+		} else {
+			System.out.println("No products populated.");
+			assertTrue(false);
+		}
+	}
+	
+	
+	@Test(priority=2)
 	public void deleteItem()  {
 		util.displayTestCaseTitle("Delete Items From Cart");
 		int totalOffers = landingPage.getSpecialOffers().size();

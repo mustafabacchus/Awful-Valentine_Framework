@@ -233,9 +233,9 @@ public class LandingPageTest extends Base {
 				landingPage.clickReadMore(i+1);
 				infoPage.validateTitle(productName);
 				
-				System.out.println("Slide " + Integer.toString(i+1) + " [" + productName + "]: Pass");
+				System.out.println("Slide " + Integer.toString(i+1) + " (" + productName + "): Pass");
 			} catch (java.lang.AssertionError e) {
-				System.out.println("Slide " + Integer.toString(i+1) + " [" + productName + "]: Fail");
+				System.out.println("Slide " + Integer.toString(i+1) + " (" + productName + "): Fail");
 				working = false;
 			}
 			//Go to home page
