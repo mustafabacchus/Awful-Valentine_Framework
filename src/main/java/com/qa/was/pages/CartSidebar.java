@@ -22,7 +22,7 @@ public class CartSidebar extends Base {
 		}
 	}
 	
-	public int getItemInCart() {
+	public int getNumItemsInCart() {
 		try {
 			WebElement brief = driver.findElement(By.id("Cart66AdvancedSidebarAjax")).findElement(By.id("Cart66WidgetCartEmptyAdvanced"));
 			return Integer.valueOf(brief.getText().split(" ")[2]);

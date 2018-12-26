@@ -52,7 +52,7 @@ public class CartPageTest extends Base {
 		cartSidebar.clickViewCart();
 		
 		//Proceed if there are items in the cart
-		if (cartSidebar.getItemInCart() != 0) {
+		if (cartSidebar.getNumItemsInCart() != 0) {
 			
 			//Report items populated
 			List<WebElement> items = cartPage.getItemsInCart();
@@ -88,31 +88,31 @@ public class CartPageTest extends Base {
 		cartPage.populateCartWithSpecialOffers();
 		cartSidebar.clickViewCart();
 		
-		if (cartSidebar.getItemInCart() != 0) {
+		if (cartSidebar.getNumItemsInCart() != 0) {
 			
 			//Report items populated
 			List<WebElement> items = cartPage.getItemsInCart();
 			System.out.println(Integer.toString(items.size()) + "/" + Integer.toString(totalOffers) 
 				+ " products populated." );
 			
-			int qty = 5;
-			List<Integer> qtys = new ArrayList<Integer>();
+			int count = 0;
+			int[] qtys = new int[items.size()];
 			//Change the quantity of items
 			for(WebElement item: items) {
-				cartPage.inputQuantity(item, qty);
-				qtys.add(qty);
-				qty++;
+				qtys[count] = count + 5;
+				cartPage.inputQuantity(item, qtys[count]);
+				count++;
 			}
 			cartPage.clickUpdateTotal();
 			
 			//Check if quantity has been updated
 			items = cartPage.getItemsInCart();
-			int count = 0;
+			count = 0;
 			boolean working = true;
 			for (WebElement item: items) {
 				try {
-					int q = qtys.get(count);
-					assertEquals(cartPage.getQuantity(item), q);
+					int qty = qtys[count];
+					assertEquals(cartPage.getQuantity(item), qty);
 					System.out.println(cartPage.getItemName(item) + ": Pass");
 				} catch (java.lang.AssertionError e) {
 					System.out.println(cartPage.getItemName(item) + ": Fail");
@@ -138,7 +138,7 @@ public class CartPageTest extends Base {
 		cartPage.populateCartWithSpecialOffers();
 		cartSidebar.clickViewCart();
 		
-		if (cartSidebar.getItemInCart() != 0) {
+		if (cartSidebar.getNumItemsInCart() != 0) {
 			
 			//Report items populated
 			List<WebElement> items = cartPage.getItemsInCart();
@@ -155,7 +155,7 @@ public class CartPageTest extends Base {
 			boolean working = true;
 			//Validate empty cart
 			try {
-				assertEquals(cartSidebar.getItemInCart(), 0);
+				assertEquals(cartSidebar.getNumItemsInCart(), 0);
 				System.out.println("Items Deleted: Pass");
 			} catch (java.lang.AssertionError e) {
 				System.out.println("Items Deleted: Fail");

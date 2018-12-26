@@ -39,8 +39,7 @@ public class CartPage extends Base {
 	public void populateCartWithSpecialOffers() {
 		for (int i = 0; i < landingPage.getSpecialOffers().size(); i++) {
 			List<WebElement> products = landingPage.getSpecialOffers();
-			WebElement product = products.get(i);
-			landingPage.addItemToCart(product);
+			landingPage.addItemToCart(products.get(i));
 			try {
 				validateTitle();
 				clickContinueShopping();

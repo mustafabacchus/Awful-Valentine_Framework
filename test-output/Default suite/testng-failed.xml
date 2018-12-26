@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.qa.testcases.CartPageTest">
+      <class name="com.qa.testcases.CartSidebarTest">
         <methods>
-          <include name="updateCart"/>
+          <include name="cartSyncWithSidebar"/>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="checkCartQTY"/>
         </methods>
-      </class> <!-- com.qa.testcases.CartPageTest -->
+      </class> <!-- com.qa.testcases.CartSidebarTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
