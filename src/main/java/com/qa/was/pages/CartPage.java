@@ -3,6 +3,7 @@ package com.qa.was.pages;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -59,6 +60,8 @@ public class CartPage extends Base {
 				break;
 			} catch(IllegalArgumentException e) {
 				continue;
+			} catch (NoSuchElementException e) {
+				return Collections.emptyList();
 			}
 		}
 		return items.subList(0, items.size()-4);

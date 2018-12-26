@@ -44,9 +44,12 @@ public class CartSidebarTest extends Base {
 			List<WebElement> products = landingPage.getSpecialOffers();
 			landingPage.addItemToCart(products.get(i));
 			
+			int totalQty = 0;
 			boolean ok = true;
 			try {
 				cartPage.validateTitle();
+				WebElement lastItem = cartPage.getItemsInCart().get(cartPage.getItemsInCart().size()-1);
+				totalQty = totalQty + cartPage.getQuantity(lastItem);
 				ok = true;
 			} catch (java.lang.AssertionError e) {
 				driver.navigate().to(prop.getProperty("url"));
@@ -54,23 +57,23 @@ public class CartSidebarTest extends Base {
 			}
 			//Check sync
 			if (ok) {
-				assertEquals(cartPage.getItemsInCart().size(), cartSidebar.getNumItemsInCart());
+				assertEquals(totalQty, cartSidebar.getNumItemsInCart());
 				cartPage.clickContinueShopping();
 			}
 		}
-		
+		/*
 		//Move to cart page
 		cartSidebar.clickViewCart();
-		
-		//Delete each item from cart
-		int total = cartPage.getItemsInCart().size();
-		for (int i = 0; i < total; i++) {
-			List<WebElement>items = cartPage.getItemsInCart();
-			cartPage.clickTrashIcon(items.get(0));
-			//Check sync
-			assertEquals(items.size()-1, cartSidebar.getNumItemsInCart());
+		if (cartPage.getItemsInCart().size() != 0) {
+			//Delete each item from cart
+			int total = cartPage.getItemsInCart().size();
+			for (int i = 0; i < total; i++) {
+				cartPage.clickTrashIcon(cartPage.getItemsInCart().get(0));
+				//Check sync
+				assertEquals(cartPage.getItemsInCart().size(), cartSidebar.getNumItemsInCart());
+			}
 		}
-		
+		*/
 	}
 	
 	
