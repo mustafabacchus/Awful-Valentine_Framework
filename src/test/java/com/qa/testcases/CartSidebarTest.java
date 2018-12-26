@@ -61,6 +61,7 @@ public class CartSidebarTest extends Base {
 		
 		//Move to cart page
 		cartSidebar.clickViewCart();
+		
 		//Delete each item from cart
 		int total = cartPage.getItemsInCart().size();
 		for (int i = 0; i < total; i++) {
