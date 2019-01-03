@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="39450" started-at="2019-01-03T17:00:10Z" finished-at="2019-01-03T17:00:50Z">
+  <suite name="Default suite" duration-ms="39975" started-at="2019-01-03T17:21:44Z" finished-at="2019-01-03T17:22:24Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="39450" started-at="2019-01-03T17:00:10Z" finished-at="2019-01-03T17:00:50Z">
+    <test name="Default test" duration-ms="39975" started-at="2019-01-03T17:21:44Z" finished-at="2019-01-03T17:22:24Z">
       <class name="com.qa.testcases.CartSidebarTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.testcases.CartSidebarTest@29774679]" name="setup" is-config="true" duration-ms="14989" started-at="2019-01-03T12:00:10Z" finished-at="2019-01-03T12:00:25Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.testcases.CartSidebarTest@29774679]" name="setup" is-config="true" duration-ms="14171" started-at="2019-01-03T12:21:44Z" finished-at="2019-01-03T12:21:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="sidebarSyncWithCart()[pri:0, instance:com.qa.testcases.CartSidebarTest@29774679]" name="sidebarSyncWithCart" duration-ms="23655" started-at="2019-01-03T12:00:25Z" finished-at="2019-01-03T12:00:49Z">
+        <test-method status="PASS" signature="sidebarSyncWithCart()[pri:0, instance:com.qa.testcases.CartSidebarTest@29774679]" name="sidebarSyncWithCart" duration-ms="24971" started-at="2019-01-03T12:21:58Z" finished-at="2019-01-03T12:22:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sidebarSyncWithCart -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.testcases.CartSidebarTest@29774679]" name="tearDown" is-config="true" duration-ms="788" started-at="2019-01-03T12:00:49Z" finished-at="2019-01-03T12:00:50Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.testcases.CartSidebarTest@29774679]" name="tearDown" is-config="true" duration-ms="816" started-at="2019-01-03T12:22:23Z" finished-at="2019-01-03T12:22:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

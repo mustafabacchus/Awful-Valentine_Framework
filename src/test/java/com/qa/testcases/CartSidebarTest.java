@@ -102,17 +102,15 @@ public class CartSidebarTest extends Base {
 					for (WebElement item: items) {
 						cartItems += cartPage.getQuantity(item);
 					}
-				}
-				
-				//Check sync
-				if (i > 0) {
+		
+					//Check sync
 					assertEquals(cartSidebar.getNumItemsInCart(), cartItems);
-					
 					//Display results
 					System.out.println("Cart Sidebar: " + Integer.toString(cartSidebar.getNumItemsInCart()) + 
 							"; Items In Cart: " + Integer.toString(cartItems));
 					System.out.println();
-				} else {
+				
+				} else { //Cart is empty
 					assertEquals(cartSidebar.getNumItemsInCart(), 0);
 					cartPage.validateEmptyCartMessage();
 					
