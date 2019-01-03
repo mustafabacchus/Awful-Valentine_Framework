@@ -5,7 +5,7 @@
     <classes>
       <class name="com.qa.testcases.CartSidebarTest">
         <methods>
-          <include name="cartSyncWithSidebar"/>
+          <include name="sidebarSyncWithCart"/>
           <include name="setup"/>
           <include name="tearDown"/>
         </methods>
